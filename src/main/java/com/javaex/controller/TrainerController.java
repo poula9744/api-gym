@@ -5,25 +5,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javaex.service.MemberService;
+import com.javaex.service.TrainerService;
 import com.javaex.util.JsonResult;
 import com.javaex.util.JwtUtil;
-import com.javaex.vo.MemberVo;
+import com.javaex.vo.TrainerVo;
 
 import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
-public class MemberController {
+public class TrainerController {
 
-	 @Autowired
-	private MemberService memberService;
+	@Autowired
+	private TrainerService trainerService;
 
 	// 로그인
-	@PostMapping("/api/member/login")
-	public JsonResult login(@RequestBody MemberVo memberVo, HttpServletResponse response) {
-		System.out.println("MemberController.login()");
+	@PostMapping("/api/trainer/login")
+	public JsonResult login(@RequestBody TrainerVo trainerVo, HttpServletResponse response) {
+		System.out.println("TrainerController.login()");
 
-		MemberVo authUser = memberService.exeLogin(memberVo);
+		TrainerVo authUser = trainerService.exeLogin(trainerVo);
 		System.out.println(authUser);
 
 		if (authUser != null) {
@@ -34,5 +34,4 @@ public class MemberController {
 			return JsonResult.fail("로그인 실패");
 		}
 	}
-
 }

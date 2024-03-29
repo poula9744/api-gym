@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="trainer">
+	<!-- 로그인 -->
+	<select id="selectByIdPw" resultType="com.javaex.vo.TrainerVo" parameterType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			select no,name, address, gender, hp, age
+			from trainer
+			where id= #{id}
+			and password=#{password}
+		]]>
+	</select>
+</mapper>
