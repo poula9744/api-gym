@@ -22,7 +22,7 @@ public class MemberDao {
 	// 회원가입
 	public int join(MemberVo memberVo) {
 		System.out.println("MemberDao.userModify()");
-		int count = sqlSession.update("member.join", memberVo);
+		int count = sqlSession.insert("member.join", memberVo);
 		System.out.println(count);
 		return count;
 	}

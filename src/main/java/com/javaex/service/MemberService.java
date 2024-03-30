@@ -19,7 +19,7 @@ public class MemberService {
 		return authUser;
 	}
 
-	// 회원가입용
+	// 회원가입
 	public int exeJoin(MemberVo memberVo) {
 		System.out.println("MemberService.exeJoin()");
 		int count = memberDao.join(memberVo);

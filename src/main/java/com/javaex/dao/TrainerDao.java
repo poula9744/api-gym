@@ -12,7 +12,7 @@ public class TrainerDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	//로그인
+	// 로그인
 	public TrainerVo trainerSelectByIdPw(TrainerVo trainerVo) {
 		System.out.println("TrainerDao.memberSelectByIdPw()");
 		TrainerVo authUser = sqlSession.selectOne("trainer.selectByIdPw", trainerVo);
@@ -21,9 +21,15 @@ public class TrainerDao {
 
 	// 회원가입
 	public int join(TrainerVo trainerVo) {
-		System.out.println("TrainerDao.userModify()");
-		int count = sqlSession.update("trainer.join", trainerVo);
-		System.out.println(count);
+		System.out.println("TrainerDao.join()");
+		int count = sqlSession.insert("trainer.join", trainerVo);
+		return count;
+	}
+
+	// 트레이너 사진 등록
+	public int addPhoto(TrainerVo trainerVo) {
+		System.out.println("TrainerDao.addPhoto()");
+		int count = sqlSession.update("trainer.addPhoto", trainerVo);
 		return count;
 	}
 
@@ -34,4 +40,21 @@ public class TrainerDao {
 		System.out.println(count);
 		return count;
 	}
+
+	// 조회no(회원정보수정 폼)
+	public TrainerVo trainerSelectOneByNo(int no) {
+		System.out.println("TrainerDao.userSelectOneByNo()");
+
+		TrainerVo trainerVo = sqlSession.selectOne("trainer.selectOneByNo", no);
+		return trainerVo;
+	}
+
+	// 회원 정보 수정
+	public int trainerUpdate(TrainerVo trainerVo) {
+		System.out.println("TrainerDao.userModify()");
+		int count = sqlSession.update("trainer.update", trainerVo);
+		System.out.println(count);
+		return count;
+	}
+
 }

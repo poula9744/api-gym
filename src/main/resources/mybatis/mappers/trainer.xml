@@ -27,4 +27,46 @@
 		]]>
 	</select>
 	
+	<!-- 한 명의 정보 가져오기 -->
+	<select id="selectOneByNo" parameterType="int" resultType="com.javaex.vo.TrainerVo">
+		<![CDATA[ 
+			select 	no, 
+						id,
+						password,
+						name,
+						address,
+						gender,
+						hp,
+						age
+			from trainer
+			where no = #{no}
+		]]>
+	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="update" parameterType="com.javaex.vo.TrainerVo">
+		<![CDATA[ 
+			update trainer
+			set password = #{password},
+				 name = #{name},
+				address = #{address},
+				gender = #{gender},
+				hp = #{hp},
+				age = #{age}
+			where no = #{no}
+		]]>
+	</update>
+	
+	
+	<!-- 사진 등록
+	<insert id="addPhoto" parameterType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			insert into introduction
+			values(#{no}, #{orgName}, #{saveName}, #{filePath}, #{fileSize})
+		]]>
+	</insert>
+	 -->
+	 
+
+	
 </mapper>

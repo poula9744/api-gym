@@ -23,6 +23,7 @@ public class TrainerService {
 	public int exeJoin(TrainerVo trainerVo) {
 		System.out.println("TrainerService.exeJoin()");
 		int count = trainerDao.join(trainerVo);
+		//int count = trainerDao.addPhoto(trainerVo);
 		return count;
 	}
 
@@ -30,6 +31,22 @@ public class TrainerService {
 	public int exeCheck(String id) {
 		System.out.println("TrainerService.exeCheck()");
 		int count = trainerDao.check(id);
+		return count;
+	}
+
+	// 회원정보 수정폼
+	public TrainerVo exeModifyForm(int no) {
+		System.out.println("TrainerService.exeModifyForm()");
+
+		TrainerVo trainerVo = trainerDao.trainerSelectOneByNo(no);
+		return trainerVo;
+	}
+
+	// 회원정보 수정
+	public int exeModify(TrainerVo trainerVo) {
+		System.out.println("TrainerService.exeModify()");
+
+		int count = trainerDao.trainerUpdate(trainerVo);
 		return count;
 	}
 }
