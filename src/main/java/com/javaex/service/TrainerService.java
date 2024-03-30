@@ -18,4 +18,18 @@ public class TrainerService {
 		TrainerVo authUser = trainerDao.trainerSelectByIdPw(trainerVo);
 		return authUser;
 	}
+
+	// 회원가입용
+	public int exeJoin(TrainerVo trainerVo) {
+		System.out.println("TrainerService.exeJoin()");
+		int count = trainerDao.join(trainerVo);
+		return count;
+	}
+
+	// id 중복체크용
+	public int exeCheck(String id) {
+		System.out.println("TrainerService.exeCheck()");
+		int count = trainerDao.check(id);
+		return count;
+	}
 }

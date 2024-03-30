@@ -11,4 +11,20 @@
 			and password=#{password}
 		]]>
 	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="join" parameterType="com.javaex.vo.TrainerVo">
+		<![CDATA[
+			insert into trainer
+			values(null, #{id}, #{password},#{name}, #{address}, #{gender}, #{hp}, #{age})
+		]]>
+	</insert>
+	
+	<!-- 아이디 중복체크 -->
+	<select id="idCheck" resultType="int" parameterType="String">
+		<![CDATA[
+			select count(id) from trainer where id=#{id}
+		]]>
+	</select>
+	
 </mapper>

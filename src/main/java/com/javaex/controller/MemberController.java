@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @RestController
 public class MemberController {
 
-	 @Autowired
+	@Autowired
 	private MemberService memberService;
 
 	// 로그인
@@ -35,4 +36,24 @@ public class MemberController {
 		}
 	}
 
+	// 회원가입
+	@PostMapping("/api/member/join")
+	public int join(@RequestBody MemberVo memberVo) {
+		System.out.println("MemberController.join()");
+		int count = memberService.exeJoin(memberVo);
+		return count;
+	}
+
+	
+	// 아이디 중복체크
+	@PutMapping("/api/member/join")
+	public int idCheck(@RequestBody MemberVo memberVo) {
+		System.out.println("MemberController.idCheck()");
+		System.out.println(memberVo);
+		String id = memberVo.getId();
+		System.out.println(id);
+		int count = memberService.exeCheck(id);
+		return count;
+	}
+	
 }

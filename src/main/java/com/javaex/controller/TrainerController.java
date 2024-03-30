@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,4 +35,23 @@ public class TrainerController {
 			return JsonResult.fail("로그인 실패");
 		}
 	}
+
+	// 회원가입
+		@PostMapping("/api/trainer/join")
+		public int join(@RequestBody TrainerVo trainerVo) {
+			System.out.println("TrainerController.join()");
+			int count = trainerService.exeJoin(trainerVo);
+			return count;
+		}
+
+		
+		// 아이디 중복체크
+		@PutMapping("/api/trainer/join") //get으로 하면 안되는데 왤까요?
+		public int idCheck(@RequestBody TrainerVo trainerVo) {
+			System.out.println("TrainerController.idCheck()");
+			String id = trainerVo.getId();
+			System.out.println(id);
+			int count = trainerService.exeCheck(id);
+			return count;
+		}
 }

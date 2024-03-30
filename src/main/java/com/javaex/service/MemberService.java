@@ -11,12 +11,26 @@ public class MemberService {
 
 	@Autowired
 	private MemberDao memberDao;
-	
-	//로그인
+
+	// 로그인
 	public MemberVo exeLogin(MemberVo memberVo) {
 		System.out.println("MemberService.exeLogin()");
 		MemberVo authUser = memberDao.memberSelectByIdPw(memberVo);
 		return authUser;
 	}
-	
+
+	// 회원가입용
+	public int exeJoin(MemberVo memberVo) {
+		System.out.println("MemberService.exeJoin()");
+		int count = memberDao.join(memberVo);
+		return count;
+	}
+
+	// id 중복체크용
+	public int exeCheck(String id) {
+		System.out.println("MemberService.exeCheck()");
+		int count = memberDao.check(id);
+		return count;
+	}
+
 }
