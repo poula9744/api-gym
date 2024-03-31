@@ -56,6 +56,23 @@ public class TrainerController {
 		return count;
 	}
 
+	// 회원정보 완료: 한명 정보 가져오기
+	@GetMapping("/api/trainer/join")
+	public JsonResult joinOk(HttpServletRequest request) {
+		System.out.println("TrainerController.joinOk()");
+
+		int no = JwtUtil.getNoFromHeader(request);
+
+		if (no != -1) {
+			TrainerVo trainerVo = trainerService.exeModifyForm(no);
+			System.out.println(trainerVo);
+			return JsonResult.success(trainerVo);
+		} else {
+			// 토큰이 없거나(로그인상태 아님) 변조된 경우
+			return JsonResult.fail("fail");
+		}
+	}
+
 	// 회원정보 수정폼: 한명 정보 가져오기
 	@GetMapping("/api/trainer/modify")
 	public JsonResult modifyform(HttpServletRequest request) {
