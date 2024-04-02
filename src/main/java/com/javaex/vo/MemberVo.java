@@ -4,14 +4,16 @@ public class MemberVo {
 
 	//필드
 	private int no;
-	private int trainerNo;
 	private String id;
 	private String password;
 	private String name;
 	private String address;
 	private String gender;
 	private String hp;
-	private String age;
+	private int age;
+	private int lockerNo;
+	private int period;
+	private String approval;
 	
 	
 	//생성자
@@ -19,11 +21,10 @@ public class MemberVo {
 		super();
 	}
 
-	public MemberVo(int no, int trainerNo, String id, String password, String name, String address, String gender,
-			String hp, String age) {
+	public MemberVo(int no, String id, String password, String name, String address, String gender, String hp, int age,
+			int lockerNo, int period, String approval) {
 		super();
 		this.no = no;
-		this.trainerNo = trainerNo;
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -31,23 +32,18 @@ public class MemberVo {
 		this.gender = gender;
 		this.hp = hp;
 		this.age = age;
+		this.lockerNo = lockerNo;
+		this.period = period;
+		this.approval = approval;
 	}
 
-	//메소드 - getter/setter
+	//메소드 - g/s
 	public int getNo() {
 		return no;
 	}
 
 	public void setNo(int no) {
 		this.no = no;
-	}
-
-	public int getTrainerNo() {
-		return trainerNo;
-	}
-
-	public void setTrainerNo(int trainerNo) {
-		this.trainerNo = trainerNo;
 	}
 
 	public String getId() {
@@ -98,20 +94,50 @@ public class MemberVo {
 		this.hp = hp;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public int getLockerNo() {
+		return lockerNo;
+	}
+
+	public void setLockerNo(int lockerNo) {
+		this.lockerNo = lockerNo;
+	}
+
+	public int getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(int period) {
+		this.period = period;
+	}
+
+	public String getApproval() {
+		return approval;
+	}
+
+	public void setApproval(String approval) {
+		this.approval = approval;
 	}
 
 	//메소드 - 일반
 	@Override
 	public String toString() {
-		return "MemberVo [no=" + no + ", trainerNo=" + trainerNo + ", id=" + id + ", password=" + password + ", name="
-				+ name + ", address=" + address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + "]";
+		return "MemberVo [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
+				+ address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + ", lockerNo=" + lockerNo
+				+ ", period=" + period + ", approval=" + approval + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -5,7 +5,7 @@
 	<!-- 로그인 -->
 	<select id="selectByIdPw" resultType="com.javaex.vo.TrainerVo" parameterType="com.javaex.vo.TrainerVo">
 		<![CDATA[
-			select no,name, address, gender, hp, age
+			select trainer_no as trainerNo, name, address, gender, hp, age, career, saveName
 			from trainer
 			where id= #{id}
 			and password=#{password}
@@ -16,7 +16,7 @@
 	<insert id="join" parameterType="com.javaex.vo.TrainerVo">
 		<![CDATA[
 			insert into trainer
-			values(null, #{id}, #{password},#{name}, #{address}, #{gender}, #{hp}, #{age})
+			values(null, #{id}, #{password},#{name}, #{address}, #{gender}, #{hp}, #{age}, null, null, null, null, null);
 		]]>
 	</insert>
 	
@@ -30,14 +30,16 @@
 	<!-- 한 명의 정보 가져오기 -->
 	<select id="selectOneByNo" parameterType="int" resultType="com.javaex.vo.TrainerVo">
 		<![CDATA[ 
-			select 	no, 
+			select 	trainer_no, 
 						id,
 						password,
 						name,
 						address,
 						gender,
 						hp,
-						age
+						age,
+						career,
+						saveName
 			from trainer
 			where no = #{no}
 		]]>
@@ -53,7 +55,7 @@
 				gender = #{gender},
 				hp = #{hp},
 				age = #{age}
-			where no = #{no}
+			where trainer_no = #{no}
 		]]>
 	</update>
 	

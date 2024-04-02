@@ -26,13 +26,13 @@ public class TrainerController {
 	public JsonResult login(@RequestBody TrainerVo trainerVo, HttpServletResponse response) {
 		System.out.println("TrainerController.login()");
 
-		TrainerVo authUser = trainerService.exeLogin(trainerVo);
-		System.out.println(authUser);
+		TrainerVo authTrainer = trainerService.exeLogin(trainerVo);
+		System.out.println(authTrainer);
 
-		if (authUser != null) {
+		if (authTrainer != null) {
 			// 토큰 발급 헤더에 실어 보낸다
-			JwtUtil.createTokenAndSetHeader(response, "" + authUser.getNo());
-			return JsonResult.success(authUser);
+			JwtUtil.createTokenAndSetHeader(response, "" + authTrainer.getTrainerNo());
+			return JsonResult.success(authTrainer);
 		} else {
 			return JsonResult.fail("로그인 실패");
 		}

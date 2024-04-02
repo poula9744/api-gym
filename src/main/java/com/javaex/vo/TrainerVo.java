@@ -3,24 +3,30 @@ package com.javaex.vo;
 public class TrainerVo {
 
 	//필드
-	private int no;
+	private int trainerNo;
 	private String id;
 	private String password;
 	private String name;
 	private String address;
 	private String gender;
 	private String hp;
-	private String age;
+	private int age;
+	private String career;
+	private String saveName;
+	private String orgName;
+	private String filePath;
+	private long fileSize;
+	
 	
 	//생성자
 	public TrainerVo() {
 		super();
 	}
 
-	public TrainerVo(int no, String id, String password, String name, String address, String gender, String hp,
-			String age) {
+	public TrainerVo(int trainerNo, String id, String password, String name, String address, String gender, String hp,
+			int age, String career, String saveName, String orgName, String filePath, long fileSize) {
 		super();
-		this.no = no;
+		this.trainerNo = trainerNo;
 		this.id = id;
 		this.password = password;
 		this.name = name;
@@ -28,15 +34,20 @@ public class TrainerVo {
 		this.gender = gender;
 		this.hp = hp;
 		this.age = age;
+		this.career = career;
+		this.saveName = saveName;
+		this.orgName = orgName;
+		this.filePath = filePath;
+		this.fileSize = fileSize;
 	}
 
 	//메소드 - g/s
-	public int getNo() {
-		return no;
+	public int getTrainerNo() {
+		return trainerNo;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setTrainerNo(int trainerNo) {
+		this.trainerNo = trainerNo;
 	}
 
 	public String getId() {
@@ -87,21 +98,62 @@ public class TrainerVo {
 		this.hp = hp;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	//메소드 - 일반
+	public String getCareer() {
+		return career;
+	}
+
+	public void setCareer(String career) {
+		this.career = career;
+	}
+
+	public String getSaveName() {
+		return saveName;
+	}
+
+	public void setSaveName(String saveName) {
+		this.saveName = saveName;
+	}
+
+	public String getOrgName() {
+		return orgName;
+	}
+
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public long getFileSize() {
+		return fileSize;
+	}
+
+	public void setFileSize(long fileSize) {
+		this.fileSize = fileSize;
+	}
+
+	//메소드 - 일반 
 	@Override
 	public String toString() {
-		return "TrainerVo [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", address="
-				+ address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + "]";
+		return "TrainerVo [trainerNo=" + trainerNo + ", id=" + id + ", password=" + password + ", name=" + name
+				+ ", address=" + address + ", gender=" + gender + ", hp=" + hp + ", age=" + age + ", career=" + career
+				+ ", saveName=" + saveName + ", orgName=" + orgName + ", filePath=" + filePath + ", fileSize="
+				+ fileSize + "]";
 	}
-	
 	
 	
 	
