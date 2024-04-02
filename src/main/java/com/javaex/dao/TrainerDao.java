@@ -56,5 +56,13 @@ public class TrainerDao {
 		System.out.println(count);
 		return count;
 	}
+	
+	//트레이너 이름, 사진 저장 이름, 전체회원수, 관리 회원 수
+	public TrainerVo selectTrainerInfo(int no) {
+		System.out.println("TrainerDao.selectTrainerInfo()");
+
+		TrainerVo trainerVo = sqlSession.selectOne("trainer.selectTrainerInfo", no);
+		return trainerVo;
+	}
 
 }

@@ -14,40 +14,37 @@
 	<select id="membershipOver" resultType="String"
 		parameterType="int">
 		<![CDATA[
-			select adddate(register_date, remain_date)
+			select reg_date
 			from general
 			where no = #{no}
-			order by register_date desc
+			order by reg_date desc
 			limit 1;
 		]]>
 	</select>
+	
 	<!-- 일반회원 운동 시작 -->
-	<update id="entry" parameterType="int">
-		<![CDATA[ 
-			update general
-			set entry_time = now()
-			where no = #{no}
-			order by register_date desc
-			limit 1
+	<insert id="entry" parameterType="int">
+		<![CDATA[
+			insert into attend
+			values(null, #{no}, now() , null)
 		]]>
-	</update>
+	</insert>
 	<!-- 일반회원 운동 종료 -->
 	<update id="leave" parameterType="int">
 		<![CDATA[ 
-			update general
+			update attend
 			set leave_time = now()
 			where no = #{no}
-			order by register_date desc
-			limit 1;
 		]]>
 	</update>
+	
 	<!-- 일반회원 운동 시간 -->
-	<select id="trainingTime" resultType="String" parameterType="int">
+	<select id="trainingTime" resultType="com.javaex.vo.MemberVo"  parameterType="int">
 		<![CDATA[
-			select timediff(leave_time, entry_time)
-			from general
+			select leave_time as leaveTime, entry_time as entryTime
+			from attend
 			where no = #{no}
-			order by register_date desc
+			order by entryTime desc
 			limit 1
 		]]>
 	</select>

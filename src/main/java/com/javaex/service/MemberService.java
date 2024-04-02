@@ -32,5 +32,12 @@ public class MemberService {
 		int count = memberDao.check(id);
 		return count;
 	}
+	
+	//로그인 후 메인화면 
+	public MemberVo exeMemberInfo(int no) {
+		System.out.println("MemberService.exeMemberInfo()");
+		MemberVo memberInfo = memberDao.selectMemberInfo(no);
+		return memberInfo;
+	}
 
 }

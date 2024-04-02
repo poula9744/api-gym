@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import com.javaex.util.JsonResult;
 import com.javaex.util.JwtUtil;
 import com.javaex.vo.MemberVo;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
@@ -54,6 +56,23 @@ public class MemberController {
 		System.out.println(id);
 		int count = memberService.exeCheck(id);
 		return count;
+	}
+	
+	//로그인 후 메인화면 
+	@GetMapping("/api/member/main")
+	public JsonResult selectMemberInfo(HttpServletRequest request) {
+		System.out.println("MemberController.selectMemberInfo()");
+
+		int no = JwtUtil.getNoFromHeader(request);
+		System.out.println(no);
+		if (no != -1) {
+			MemberVo memberInfo= memberService.exeMemberInfo(no);
+			System.out.println(memberInfo);
+			return JsonResult.success(memberInfo);
+		} else {
+			// 토큰이 없거나(로그인상태 아님) 변조된 경우
+			return JsonResult.fail("fail");
+		}
 	}
 	
 }

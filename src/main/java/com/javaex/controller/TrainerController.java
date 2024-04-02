@@ -103,6 +103,21 @@ public class TrainerController {
 			// 토큰이 없거나(로그인상태 아님) 변조된 경우
 			return JsonResult.fail("fail");
 		}
-
 	}
+
+	// 로그인 후 메인정보
+	@GetMapping("/api/trainer/main")
+	public JsonResult selectTrainerInfo(HttpServletRequest request) {
+		System.out.println("TrainerController.selectTrainerInfo()");
+		int no = JwtUtil.getNoFromHeader(request);
+		System.out.println(no);
+		if (no != -1) { // 정상
+			TrainerVo trainerInfo = trainerService.exeSelectTrainerInfo(no);
+			return JsonResult.success(trainerInfo);
+		} else {
+			// 토큰이 없거나(로그인상태 아님) 변조된 경우
+			return JsonResult.fail("fail");
+		}
+	}
+
 }

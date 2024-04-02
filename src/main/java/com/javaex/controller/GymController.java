@@ -11,6 +11,7 @@ import com.javaex.service.GymService;
 import com.javaex.util.JsonResult;
 import com.javaex.util.JwtUtil;
 import com.javaex.vo.GeneralVo;
+import com.javaex.vo.MemberVo;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -85,14 +86,14 @@ public class GymController {
 		}
 	}
 
-	// 일반회원 운동 시간
+	// 일반회원 오운완
 	@GetMapping("/api/general/end")
 	public JsonResult trainingTime(HttpServletRequest request) {
 		System.out.println("GymController.trainingTime()");
 
 		int no = JwtUtil.getNoFromHeader(request);
 		if (no != -1) {
-			String trainingTime= gymService.exetrainingTime(no);
+			MemberVo trainingTime= gymService.exetrainingTime(no);
 			System.out.println(trainingTime);
 			return JsonResult.success(trainingTime);
 		} else {

@@ -49,4 +49,13 @@ public class TrainerService {
 		int count = trainerDao.trainerUpdate(trainerVo);
 		return count;
 	}
+	
+	//로그인 후 메인화면 
+	public TrainerVo exeSelectTrainerInfo(int no) {
+		System.out.println("TrainerService.exeSelectTrainerInfo()");
+
+		TrainerVo trainerVo = trainerDao.selectTrainerInfo(no);
+		return trainerVo;
+	}
+	
 }

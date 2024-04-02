@@ -35,4 +35,10 @@ public class MemberDao {
 		return count;
 	}
 
+	//로그인 후 메인화면 
+	public MemberVo selectMemberInfo(int no) {
+		System.out.println("MemberDao.selectMemberInfo()");
+		MemberVo memberInfo = sqlSession.selectOne("member.selectMemberInfo", no);
+		return memberInfo;
+	}
 }

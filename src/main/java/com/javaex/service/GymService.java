@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.GymDao;
 import com.javaex.vo.GeneralVo;
+import com.javaex.vo.MemberVo;
 
 @Service
 public class GymService {
@@ -41,9 +42,9 @@ public class GymService {
 	}
 
 	// 일반회원 운동시간
-	public String exetrainingTime(int no) {
+	public MemberVo exetrainingTime(int no) {
 		System.out.println("GymService.exetrainingTime()");
-		String trainingTime = gymDao.trainingTime(no);
+		MemberVo trainingTime = gymDao.trainingTime(no);
 		return trainingTime;
 	}
 }

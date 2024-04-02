@@ -15,6 +15,15 @@ public class MemberVo {
 	private int period;
 	private String approval;
 	
+	private int attendNo;
+	private String entryTime;
+	private String leaveTime;
+	
+	private String regDate;
+	private String deadline;
+	private int ptCount;
+	private String trainerName;
+	
 	
 	//생성자
 	public MemberVo() {
@@ -35,6 +44,53 @@ public class MemberVo {
 		this.lockerNo = lockerNo;
 		this.period = period;
 		this.approval = approval;
+	}
+	
+	
+
+	public MemberVo(int no, String id, String password, String name, String address, String gender, String hp, int age,
+			int lockerNo, int period, String approval, int attendNo, String entryTime, String leaveTime) {
+		super();
+		this.no = no;
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+		this.gender = gender;
+		this.hp = hp;
+		this.age = age;
+		this.lockerNo = lockerNo;
+		this.period = period;
+		this.approval = approval;
+		this.attendNo = attendNo;
+		this.entryTime = entryTime;
+		this.leaveTime = leaveTime;
+	}
+	
+	
+
+	public MemberVo(int no, String id, String password, String name, String address, String gender, String hp, int age,
+			int lockerNo, int period, String approval, int attendNo, String entryTime, String leaveTime, String regDate,
+			String deadline, int ptCount, String trainerName) {
+		super();
+		this.no = no;
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+		this.gender = gender;
+		this.hp = hp;
+		this.age = age;
+		this.lockerNo = lockerNo;
+		this.period = period;
+		this.approval = approval;
+		this.attendNo = attendNo;
+		this.entryTime = entryTime;
+		this.leaveTime = leaveTime;
+		this.regDate = regDate;
+		this.deadline = deadline;
+		this.ptCount = ptCount;
+		this.trainerName = trainerName;
 	}
 
 	//메소드 - g/s
@@ -124,6 +180,65 @@ public class MemberVo {
 
 	public void setApproval(String approval) {
 		this.approval = approval;
+	}
+	
+	
+
+	public int getAttendNo() {
+		return attendNo;
+	}
+
+	public void setAttendNo(int attendNo) {
+		this.attendNo = attendNo;
+	}
+
+	public String getEntryTime() {
+		return entryTime;
+	}
+
+	public void setEntryTime(String entryTime) {
+		this.entryTime = entryTime;
+	}
+
+	public String getLeaveTime() {
+		return leaveTime;
+	}
+
+	public void setLeaveTime(String leaveTime) {
+		this.leaveTime = leaveTime;
+	}
+
+	
+	public String getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+
+	public String getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
+	}
+
+	public int getPtCount() {
+		return ptCount;
+	}
+
+	public void setPtCount(int ptCount) {
+		this.ptCount = ptCount;
+	}
+
+	public String getTrainerName() {
+		return trainerName;
+	}
+
+	public void setTrainerName(String trainerName) {
+		this.trainerName = trainerName;
 	}
 
 	//메소드 - 일반
